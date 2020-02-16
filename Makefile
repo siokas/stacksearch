@@ -2,4 +2,4 @@ run:
 	deno --allow-net main.ts -q="typescript error"
 
 fmt:
-	deno fmt *.ts
+	deno fmt *.ts ./src/*.ts

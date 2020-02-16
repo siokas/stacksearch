@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/siokas/siokas.github.io/master/img/stacksearch-logo.png" width="400"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/siokas/siokas.github.io/master/img/stacksearch-logo.png" width="256"></p>
 
 Stacksearch is a [Deno](https://deno.land) script that lets developers search through Stack Overflow from the terminal. In order to run or install stacksearch you need to have deno installed in your machine.
 It is completely written in typescript which is supported in deno out of the box.  
@@ -7,12 +7,12 @@ It is completely written in typescript which is supported in deno out of the box
 
 Run without installation
 ```sh
-deno --allow-net https://raw.githubusercontent.com/siokas/stacksearch/master/main.bundle.js -q="YOUR_QUESTION_GOES_HERE"
+deno --allow-net https://raw.githubusercontent.com/siokas/stacksearch/master/dist/main.bundle.js -q="YOUR_QUESTION_GOES_HERE"
 ```
 
 Install script locally
 ```sh
-deno install stacksearch https://raw.githubusercontent.com/siokas/stacksearch/master/main.bundle.js 
+deno install stacksearch https://raw.githubusercontent.com/siokas/stacksearch/master/dist/main.bundle.js 
 ```
 
 (after installation you may want to add the stacksearch folder to your path in order to run the script like "stacksearch -q=... ")
