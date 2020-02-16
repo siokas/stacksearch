@@ -5,6 +5,8 @@ It is completely written in typescript which is supported in deno out of the box
 
 ## Installation
 
+> You may need to pass the --allow-net flag
+
 Run without installation
 ```sh
 deno --allow-net https://raw.githubusercontent.com/siokas/stacksearch/master/dist/main.bundle.js -q="YOUR_QUESTION_GOES_HERE"
@@ -25,7 +27,7 @@ Enter the number of the question which you want to display the answers. To stop 
 ## Development setup
 
 Thanks to [Deno](https://deno.land/) we do not care about the installation or configuration of dependencies. 
-Assuming that you already have installed deno in your machine, just clone or download the repo and run deno command in main.ts file.
+Assuming that you already have installed deno in your machine, just clone or download the repo and run deno command in mod.ts file.
 
 ## Used
 
@@ -44,12 +46,6 @@ Assuming that you already have installed deno in your machine, just clone or dow
 
 Apostolos Siokas – [@siokas_](https://twitter.com/siokas_) – apostolossiokas@gmail.com
 
-## License
-
-Distributed under the [MIT License](https://github.com/siokas/stacksearch/blob/master/LICENSE). 
-
-[https://github.com/siokas/stacksearch](https://github.com/siokas/stacksearch)
-
 ## Contributing
 
 1. Fork it (<https://github.com/yourname/yourproject/fork>)
@@ -57,3 +53,9 @@ Distributed under the [MIT License](https://github.com/siokas/stacksearch/blob/m
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
+
+## License
+
+Distributed under the [MIT License](https://github.com/siokas/stacksearch/blob/master/LICENSE). 
+
+[https://github.com/siokas/stacksearch](https://github.com/siokas/stacksearch)
