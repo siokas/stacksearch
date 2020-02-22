@@ -15,8 +15,10 @@ test(async function api_stackexchange_returns_questions_matching_query() {
   assert(response.length > 0);
 });
 
-test(async function api_stackexchange_returns_answers_from_given_question_id() {
-  const question_id = "typescript error";
-  let response = await StackSearchAPI.getAnswersFromQuestion(60349932);
-  assert(response.length > 0);
-});
+test(
+  async function api_stackexchange_returns_answers_from_given_question_id() {
+    const question_id = "typescript error";
+    let response = await StackSearchAPI.getAnswersFromQuestion(60349932);
+    assert(response.length > 0);
+  }
+);

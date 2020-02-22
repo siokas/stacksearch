@@ -9,12 +9,12 @@ It is completely written in typescript which is supported in deno out of the box
 
 Run without installation
 ```sh
-deno --allow-net deno --allow-net https://raw.githubusercontent.com/siokas/stacksearch/master/mod.ts YOUR_QUESTION_GOES_HERE
+deno --allow-net https://raw.githubusercontent.com/siokas/stacksearch/master/mod.ts YOUR_QUESTION_GOES_HERE
 ```
 
 Install script locally
 ```sh
-deno install stacksearch deno --allow-net https://raw.githubusercontent.com/siokas/stacksearch/master/mod.ts 
+deno install --allow-net stacksearch https://raw.githubusercontent.com/siokas/stacksearch/master/mod.ts 
 ```
 
 (after installation you may want to add the stacksearch folder to your path in order to run the script like "stacksearch YOUR_QUESTION_GOES_HERE")

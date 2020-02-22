@@ -73,3 +73,7 @@ export function not_a_number(): void {
 export function question_not_answered(): void {
   console.log(red("This question is not answered yet!"));
 }
+
+export function no_questions_matching_query(): void {
+  console.log(red("Sorry! There are no questions matching your query."));
+}

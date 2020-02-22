@@ -1,5 +1,6 @@
 import { http_get } from "./helpers.ts";
 import * as Config from "./config.ts";
+import { APIStackExchange } from "./interfaces.ts";
 
 /**
  * Using StackExchange API Version 2.2 to search through the StackOverFlow questions.
@@ -10,11 +11,11 @@ class StackSearch {
    *
    * @param title The search query
    */
-  async getQuestions(title: string) {
-    const data = await http_get(
+  async getQuestions(title: string): Promise<APIStackExchange> {
+    const data: APIStackExchange = await http_get(
       Config.stack_api_simple_search + Config.__intitle + title
     );
-    return data["items"];
+    return data;
   }
 
   /**
@@ -22,12 +23,12 @@ class StackSearch {
    *
    * @param title The search query
    */
-  async getQuestionsAdvanced(title: string) {
-    const data = await http_get(
+  async getQuestionsAdvanced(title: string): Promise<APIStackExchange> {
+    const data: APIStackExchange = await http_get(
       Config.stack_api_advanced_search + Config.__title + title
     );
 
-    return data["items"];
+    return data;
   }
 
   /**
@@ -35,14 +36,15 @@ class StackSearch {
    *
    * @param id Question ID (got from the results of the search api)
    */
-  async getAnswersFromQuestion(id: number) {
-    const data = await http_get(
+  async getAnswersFromQuestion(id: number): Promise<APIStackExchange> {
+    const data: APIStackExchange = await http_get(
       Config.stack_api_question_with_all_answers.replace(
         /{id}/gi,
         id.toString()
       )
     );
-    return data["items"];
+
+    return data;
   }
 }
 
