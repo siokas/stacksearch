@@ -10,7 +10,7 @@ class StackSearch {
    *
    * @param title The search query
    */
-  async getQuestionsWithTitle(title: string) {
+  async getQuestions(title: string) {
     const data = await http_get(
       Config.stack_api_simple_search + Config.__intitle + title
     );
@@ -22,7 +22,7 @@ class StackSearch {
    *
    * @param title The search query
    */
-  async getQuestionsWithTitleAdvanced(title: string) {
+  async getQuestionsAdvanced(title: string) {
     const data = await http_get(
       Config.stack_api_advanced_search + Config.__title + title
     );

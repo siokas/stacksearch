@@ -5038,7 +5038,7 @@ define("https://raw.githubusercontent.com/ameerthehacker/cli-spinners/master/mod
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = spinner_ts_1.Spinner;
 });
-define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/helpers", ["require", "exports"], function (require, exports) {
+define("file:///Users/apostolos/Documents/Code/deno/stacksearch/src/helpers", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
@@ -5069,7 +5069,7 @@ define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/helper
     }
     exports.escape_html_tags = escape_html_tags;
 });
-define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/config", ["require", "exports"], function (require, exports) {
+define("file:///Users/apostolos/Documents/Code/deno/stacksearch/src/config", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.stack_api_simple_search = "https://api.stackexchange.com/2.2/search?site=stackoverflow";
@@ -5080,7 +5080,7 @@ define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/config
     exports.__from_date = "&fromdate=";
     exports.__to_date = "&todate=";
 });
-define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/api", ["require", "exports", "file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/helpers", "file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/config"], function (require, exports, helpers_ts_1, Config) {
+define("file:///Users/apostolos/Documents/Code/deno/stacksearch/src/api", ["require", "exports", "file:///Users/apostolos/Documents/Code/deno/stacksearch/src/helpers", "file:///Users/apostolos/Documents/Code/deno/stacksearch/src/config"], function (require, exports, helpers_ts_1, Config) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     Config = __importStar(Config);
@@ -5093,7 +5093,7 @@ define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/api", 
          *
          * @param title The search query
          */
-        async getQuestionsWithTitle(title) {
+        async getQuestions(title) {
             const data = await helpers_ts_1.http_get(Config.stack_api_simple_search + Config.__intitle + title);
             return data["items"];
         }
@@ -5102,7 +5102,7 @@ define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/api", 
          *
          * @param title The search query
          */
-        async getQuestionsWithTitleAdvanced(title) {
+        async getQuestionsAdvanced(title) {
             const data = await helpers_ts_1.http_get(Config.stack_api_advanced_search + Config.__title + title);
             return data["items"];
         }
@@ -5118,7 +5118,7 @@ define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/api", 
     }
     exports.default = new StackSearch();
 });
-define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/prints", ["require", "exports", "https://deno.land/std/fmt/colors"], function (require, exports, colors_ts_3) {
+define("file:///Users/apostolos/Documents/Code/deno/stacksearch/src/prints", ["require", "exports", "https://deno.land/std/fmt/colors"], function (require, exports, colors_ts_3) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function empty_line() {
@@ -5133,9 +5133,7 @@ define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/prints
         console.log(colors_ts_3.yellow(colors_ts_3.bold("Description:")));
         console.log("   Search Stack Overflow from your terminal. You can search Stack Overflow questions and browse through the best answers without leaving the terminal!");
         console.log(colors_ts_3.yellow(colors_ts_3.bold("Usage:")));
-        console.log("   stacksearch [options] [--]");
-        console.log(colors_ts_3.yellow(colors_ts_3.bold("Options:")));
-        console.log('   -s --search        : Usage -s="typescript error"');
+        console.log("   stacksearch [query]");
         console.log();
         console.log(colors_ts_3.bold(colors_ts_3.magenta("To exit the app type [exit] or [close]")));
     }
@@ -5168,8 +5166,12 @@ define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/prints
         console.log(colors_ts_3.red("Please enter a number"));
     }
     exports.not_a_number = not_a_number;
+    function question_not_answered() {
+        console.log(colors_ts_3.red("This question is not answered yet!"));
+    }
+    exports.question_not_answered = question_not_answered;
 });
-define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/main", ["require", "exports", "https://deno.land/std/flags/mod", "https://deno.land/std/textproto/mod", "https://deno.land/std/strings/mod", "https://deno.land/std/io/bufio", "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/master/mod", "file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/api", "file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/prints", "file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/helpers"], function (require, exports, mod_ts_3, mod_ts_4, mod_ts_5, bufio_ts_2, mod_ts_6, api_ts_1, print, helpers_ts_2) {
+define("file:///Users/apostolos/Documents/Code/deno/stacksearch/src/main", ["require", "exports", "https://deno.land/std/flags/mod", "https://deno.land/std/textproto/mod", "https://deno.land/std/strings/mod", "https://deno.land/std/io/bufio", "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/master/mod", "file:///Users/apostolos/Documents/Code/deno/stacksearch/src/api", "file:///Users/apostolos/Documents/Code/deno/stacksearch/src/prints", "file:///Users/apostolos/Documents/Code/deno/stacksearch/src/helpers"], function (require, exports, mod_ts_3, mod_ts_4, mod_ts_5, bufio_ts_2, mod_ts_6, api_ts_1, print, helpers_ts_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     mod_ts_6 = __importDefault(mod_ts_6);
@@ -5177,42 +5179,54 @@ define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/main",
     print = __importStar(print);
     function run() {
         const args = mod_ts_3.parse(Deno.args);
-        const spinner = mod_ts_6.default.getInstance();
         if (args.h ||
             args.help ||
             (args._.length === 0 && Object.keys(args).length < 2)) {
             print.help();
         }
-        if (args.q || args.question) {
-            let query = args.q ? args.q : args.question;
+        else {
+            let query = Deno.args.join(" ");
             start_searching(query);
         }
-        async function start_searching(question) {
-            spinner.start("Searching for your question in StackOverFlow");
-            let data = await api_ts_1.default.getQuestionsWithTitleAdvanced(question);
-            spinner.stop();
+    }
+    exports.run = run;
+    async function start_searching(question) {
+        const spinner = mod_ts_6.default.getInstance();
+        spinner.start("Searching for your question in StackOverFlow");
+        let data = await api_ts_1.default.getQuestionsAdvanced(question);
+        if (data.length < 1) {
+            await spinner.fail("Sorry! There are no questions matching your query.");
+            Deno.exit();
+        }
+        else {
+            await spinner.succeed();
             console.log();
-            data.forEach((element, i) => {
-                console.log(i + 1 + ". " + element.title);
-            });
-            console.log();
-            print.which_answer_message();
-            const tpr = new mod_ts_4.TextProtoReader(new bufio_ts_2.BufReader(Deno.stdin));
-            while (true) {
-                await Deno.stdout.write(mod_ts_5.encode("> "));
-                const line = await tpr.readLine();
-                if (line == "close" || line == "exit") {
-                    break;
-                }
-                if (isNaN(Number(line))) {
-                    print.not_a_number();
-                }
-                else {
-                    if (Number(line) >= 1 && Number(line) <= data.length) {
-                        const choise = Number(line);
-                        const questionObject = data[choise - 1];
-                        const question_id = questionObject.question_id;
-                        let answers = await api_ts_1.default.getAnswersFromQuestion(question_id);
+        }
+        data.forEach((element, i) => {
+            console.log(i + 1 + ". " + element.title);
+        });
+        console.log();
+        print.which_answer_message();
+        const tpr = new mod_ts_4.TextProtoReader(new bufio_ts_2.BufReader(Deno.stdin));
+        while (true) {
+            await Deno.stdout.write(mod_ts_5.encode("> "));
+            const line = await tpr.readLine();
+            if (line == "close" || line == "exit") {
+                break;
+            }
+            if (isNaN(Number(line))) {
+                print.not_a_number();
+            }
+            else {
+                if (Number(line) >= 1 && Number(line) <= data.length) {
+                    const choise = Number(line);
+                    const questionObject = data[choise - 1];
+                    const question_id = questionObject.question_id;
+                    let answers = await api_ts_1.default.getAnswersFromQuestion(question_id);
+                    if (answers.length < 1) {
+                        console.log(print.question_not_answered);
+                    }
+                    else {
                         answers.forEach((element, i) => {
                             const title = element.title;
                             const body = helpers_ts_2.escape_html_tags(element.body);
@@ -5222,21 +5236,20 @@ define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/main",
                             print.answer(i + 1, title, body, link, score, is_accepted);
                         });
                     }
-                    else {
-                        print.not_a_valid_number();
-                    }
+                }
+                else {
+                    print.not_a_valid_number();
                 }
             }
-            Deno.exit();
         }
+        Deno.exit();
     }
-    exports.run = run;
 });
-define("file:///Users/apostolos/Documents/Code/typescript/stacksearch/mod", ["require", "exports", "file:///Users/apostolos/Documents/Code/typescript/stacksearch/src/main"], function (require, exports, StackSearch) {
+define("file:///Users/apostolos/Documents/Code/deno/stacksearch/mod", ["require", "exports", "file:///Users/apostolos/Documents/Code/deno/stacksearch/src/main"], function (require, exports, StackSearch) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     StackSearch = __importStar(StackSearch);
     StackSearch.run();
 });
 
-instantiate("file:///Users/apostolos/Documents/Code/typescript/stacksearch/mod");
+instantiate("file:///Users/apostolos/Documents/Code/deno/stacksearch/mod");

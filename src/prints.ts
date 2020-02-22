@@ -25,10 +25,7 @@ export function help(): void {
   );
 
   console.log(yellow(bold("Usage:")));
-  console.log("   stacksearch [options] [--]");
-
-  console.log(yellow(bold("Options:")));
-  console.log('   -s --search        : Usage -s="typescript error"');
+  console.log("   stacksearch [query]");
 
   console.log();
   console.log(bold(magenta("To exit the app type [exit] or [close]")));
@@ -71,4 +68,8 @@ export function which_answer_message(): void {
 
 export function not_a_number(): void {
   console.log(red("Please enter a number"));
+}
+
+export function question_not_answered(): void {
+  console.log(red("This question is not answered yet!"));
 }

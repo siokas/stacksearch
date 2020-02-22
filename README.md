@@ -9,7 +9,7 @@ It is completely written in typescript which is supported in deno out of the box
 
 Run without installation
 ```sh
-deno --allow-net https://raw.githubusercontent.com/siokas/stacksearch/master/dist/main.bundle.js -q="YOUR_QUESTION_GOES_HERE"
+deno --allow-net https://raw.githubusercontent.com/siokas/stacksearch/master/dist/main.bundle.js YOUR_QUESTION_GOES_HERE
 ```
 
 Install script locally
@@ -17,7 +17,7 @@ Install script locally
 deno install stacksearch https://raw.githubusercontent.com/siokas/stacksearch/master/dist/main.bundle.js 
 ```
 
-(after installation you may want to add the stacksearch folder to your path in order to run the script like "stacksearch -q=... ")
+(after installation you may want to add the stacksearch folder to your path in order to run the script like "stacksearch YOUR_QUESTION_GOES_HERE")
 
 ## Usage example
 
