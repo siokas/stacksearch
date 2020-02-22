@@ -17,12 +17,17 @@ Install script locally
 deno install --allow-net stacksearch https://raw.githubusercontent.com/siokas/stacksearch/master/mod.ts 
 ```
 
-(after installation you may want to add the stacksearch folder to your path in order to run the script like "stacksearch YOUR_QUESTION_GOES_HERE")
+(you may consider to add the .deno/bin folder in your path, in order to run the script like this "stacksearch YOUR_QUESTION_GOES_HERE")
 
 ## Usage example
 
-To run the script just pass the -q parameter with your questions and the stackexchange api will reply with all questions matching yours. 
-Enter the number of the question which you want to display the answers. To stop the script type __exit__ or __close__.  
+To run the script just write with your questions and the stackexchange api will reply with all questions matching yours. 
+
+```sh
+stacksearch TypeError
+```
+Enter the number of the question which you want to display the answers. To stop the script type __exit__ or __close__. 
+In the answer section there is also included the (stackoverflow) score of the answer and the mark if the answer is accepted. 
 
 ## Development setup
 
