@@ -1,3 +1,3 @@
-import * as StackSearch from "./src/main.ts";
+import StackSearch from "./src/StackSearch.ts";
 
-StackSearch.run();
+new StackSearch();
