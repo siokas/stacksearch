@@ -14,7 +14,7 @@ deno --allow-net https://raw.githubusercontent.com/siokas/stacksearch/master/mod
 
 Install script locally
 ```sh
-deno install --allow-net stacksearch https://raw.githubusercontent.com/siokas/stacksearch/master/mod.ts 
+deno install --allow-net -n stacksearch https://raw.githubusercontent.com/siokas/stacksearch/master/mod.ts 
 ```
 
 (you may consider to add the .deno/bin folder in your path, in order to run the script like this "stacksearch YOUR_QUESTION_GOES_HERE")
